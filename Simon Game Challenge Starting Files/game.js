@@ -13,9 +13,10 @@ $(".btn").click(function() {
 
   playSound(userChosenColor);
 
+  animatePress(userChosenColor);
 });
 
-//*animate button and generate random selection
+//*generate random selection
 
 function nextSequence() {
   var randomNumber = Math.floor(Math.random() * 4);
@@ -34,3 +35,13 @@ function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
 }
+
+//*create function to simulate pressing of button
+
+function animatePress(currentColor) {
+  $("#" + currentColor).addClass("pressed");
+
+  setTimeout(function () {
+    $("#" + currentColor).removeClass("pressed");
+  }, 100);
+  }
