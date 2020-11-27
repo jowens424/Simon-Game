@@ -8,7 +8,11 @@ $(".btn").click(function() {
   var userChosenColor = $(this).attr("id");
 
   userClickedPattern.push(userChosenColor);
-  console.log(userChosenColor);
+
+  console.log(userClickedPattern);
+
+  playSound(userChosenColor);
+
 });
 
 //*animate button and generate random selection
@@ -21,6 +25,12 @@ gamePattern.push(randomChosenColor);
 
 $("#" + randomChosenColor).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
-var audio = new Audio("sounds/" + randomChosenColor + ".mp3");
-audio.play();
+playSound(randomChosenColor);
+}
+
+//*control sound for different variables
+
+function playSound(name) {
+  var audio = new Audio("sounds/" + name + ".mp3");
+  audio.play();
 }
